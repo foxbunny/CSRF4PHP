@@ -21,6 +21,16 @@ The generateHiddenField() and generateToken() create a $_SESSION['csrf']
 array, which contains the material for token creation. This data is 
 preserved so that the token can be checked later.
 
+License
+-------
+
+Copyright (c)2010, by Branko Vukelic.
+All rights reserved.
+The code for CSRF4PHP is released under GPLv3. You will find the whole text of
+the license in the file ``LICENSE.txt`` in this package. If you did not receive
+the file with the package, you may 
+[find it online](http://www.gnu.org/licenses/gpl-3.0.txt).
+
 Disclaimer
 ----------
 
