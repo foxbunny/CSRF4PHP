@@ -2,7 +2,7 @@
 /**
  * CsrfToken.php
  *
- * This file contains the CsrfToken class that handles genration and checking 
+ * This fine contains the CsrfToken class that handles genration and checking 
  * of Synchronization tokens (http://bit.ly/owasp_synctoken).
  *
  * The basic usage involves initializing an instance at some point, calling 
@@ -87,12 +87,14 @@ class CsrfToken {
     public function randomString($len = 10) {
         // Characters that may look like other characters in different fonts
         // have been omitted.
+        $rString = '';
         $chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789';
         $charsTotal  = \strlen($chars);
         for ($i = 0; $i < $len; $i++) {
-            $string .= $chars[\mt_rand(0, $charsTotal)];
+            $rInt = (integer) \mt_rand(0, $charsTotal);
+            $rString .= \substr($chars, $rInt, 1);
         }
-        return $string;
+        return $rString;
     }
 
     /**
