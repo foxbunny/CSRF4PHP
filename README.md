@@ -1,11 +1,24 @@
-CSRF4PHP: Cross-Site Request Forgery kit for for PHP
-====================================================
+CSRF4PHP: Cross-Site Request Forgery protection kit for for PHP
+===============================================================
 
 This file contains the CsrfToken class that handles genration and checking 
 of [Synchronization tokens](http://bit.ly/owasp_synctoken).
 
 In future more features will be incorporated into this kit, but the CsrfToken
 class is the most important part of the puzzle.
+
+Note on compatibility
+---------------------
+
+This kit was written for PHP version 5.3 and upwards. It has not been, and will
+not be tested on any previous version of PHP. I believe the code would work
+provided you remove the namespace line from ``CsrfToken.php`` (or any other
+piece of code that you may find in this package), and use CsrfToken without the
+namespaces. 
+
+If you feel support for pre-5.3 version is important to you, please test
+CsrfToken as is in your code, and then try removing the namespace. I'm not sure
+how it's supposed to work, so I'd appreciate a bug report on that.
 
 Basic usage scenario
 --------------------
