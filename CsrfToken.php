@@ -23,7 +23,7 @@
  * TODO: Write unit tests.
  *
  * @author Branko Vukelic <studio@brankovukelic.com>
- * @version 0.1
+ * @version 0.1.2
  * @package Csrf 
  */
 namespace Csrf;
@@ -46,24 +46,31 @@ namespace Csrf;
 class CsrfToken {
 
     /**
-     *  Flag to determine whether GET HTTP verb is checked for a token. 
+     *  Flag to determine whether GET HTTP verb is checked for a token
+     *
      *  Otherwise, only POST will be checked (default).
+     *
      *  @access protected
      *  @var boolean
      */
     protected $acceptGet = FALSE;
 
     /**
-     *  Default timeout for token check. If the request is made outside of this 
-     *  time frame, it will be considered invalid. This parameter can be 
-     *  manually overriden at check time by supplying the appropriate arugment 
-     *  to the {@link checkToken()} method.
+     *  Default timeout for token check
+     *
+     *  If the request is made outside of this time frame, it will be 
+     *  considered invalid. This parameter can be manually overriden at check 
+     *  time by supplying the appropriate arugment to the {@link checkToken()} 
+     *  method.
+     *
      *  @access protected
      *  @var integer
      */
     protected $timeout = 300;
 
     /**
+     *  Class constructor
+     *
      *  While initializing this class, it is possible to specify the {@link 
      *  $timeout} parameter. The timeout is 300 seconds (5 minutes) by default. 
      *  The {@link acceptGet} argument can be set to TRUE if you wish to 
@@ -80,7 +87,10 @@ class CsrfToken {
     }
 
     /**
+     *  Random string gnerator
+     *
      *  Utility function for random string generation of the $len length.
+     *
      *  @param integer $len (defaults to 10) length of the generated string
      *  @return string
      */
@@ -98,9 +108,11 @@ class CsrfToken {
     }
 
     /**
-     *  Calculates the SHA1 hash from the csrf token material found in 
-     *  $_SESSION['csrf']. This function is not used directly. It is called by 
-     *  other public CsrfToken method.
+     *  Calculates the SHA1 hash from the csrf token material 
+     *
+     *  The token material is found in $_SESSION['csrf'] array. This function 
+     *  is not used directly. It is called by other public CsrfToken method.
+     *
      *  @see generateToken(), generateHiddenField(), checkToken()
      *  @visibility protected
      *  @return string
@@ -110,10 +122,13 @@ class CsrfToken {
     }
 
     /**
-     *  Generates the token string encoded using Base64 algorythm. When this 
-     *  method is called, it also resets any data in the $_SESSION['csrf'] 
-     *  array, so it can be called multiple times. It is not wise to call this 
-     *  method before performing a chek for an earlier request.
+     *  Generates the token string encoded using Base64 algorythm
+     *
+     *  When this method is called, it also resets any data in the 
+     *  $_SESSION['csrf'] array, so it can be called multiple times. It is not 
+     *  wise to call this method just before performing a chek for an earlier 
+     *  request, as it will overwrite any token material it finds.
+     *
      *  @see generateHiddenField()
      *  @visibility public
      *  @return string
@@ -132,14 +147,16 @@ class CsrfToken {
     }
 
     /**
-     *  Generate the entire hiddent form element containing the token. Since 
-     *  Sychronize Token CSRF protection is most effective with POST requests, 
-     *  this convenience method allows you to generate a prefabricated hidden 
-     *  element that you will insert into your forms. The markup is XHTML 
-     *  compliant. Since it will not break regular HTML or HTML5 markup, there 
-     *  are no options for customization. You can use the 
+     *  Generates the entire hiddent form element containing the token
+     *
+     *  Since Sychronize Token CSRF protection is most effective with POST 
+     *  requests, this convenience method allows you to generate a 
+     *  prefabricated hidden element that you will insert into your forms. The 
+     *  markup is XHTML compliant. Since it will not break regular HTML or 
+     *  HTML5 markup, there are no options for customization. You can use the 
      *  {@link generateToken()} method if you want a custom markup, or just 
      *  want the raw token string.
+     *
      *  @see generateToken()
      *  @visibility public
      *  @return string
@@ -152,11 +169,13 @@ class CsrfToken {
     }
     
     /**
-     *  Check the timeliness of the request. This method is not meant to be 
-     *  called directly, but is called by the {@link checkToken()} method. It 
-     *  checks the time recorded in the session against the time of request, 
-     *  and returns TRUE if the request was just in time, or FALSE if the 
-     *  request broke the time limit.
+     *  Checks the timeliness of the request
+     *
+     *  This method is not meant to be called directly, but is called by the 
+     *  {@link checkToken()} method. It checks the time recorded in the session 
+     *  against the time of request, and returns TRUE if the request was just 
+     *  in time, or FALSE if the request broke the time limit.
+     *
      *  @see checkToken()
      *  @visibility protected
      *  @param integer $timeout request timeout in seconds
@@ -170,17 +189,20 @@ class CsrfToken {
     }
 
     /**
-     *  Checks the token to authenticate the request. The check will fail if 
-     *  the session wasn't started (or the session id got lost somehow), if the 
-     *  $_SESSION['csrf'] wasn't set (probably the form page didn't do its part 
-     *  in generating and using the token), if the request did not contain the 
-     *  'csrf' parameter, or if the 'csrf' parameter does not match the 
-     *  generated from the information in the $_SESSION['csrf']. The check will 
-     *  also fail if the request was made outside of the time limit specified 
-     *  by the optional $timeout parameter or took longer than the default 5 
-     *  minutes. For multi-page scenarios, or for longer forms (like blog posts 
-     *  and user comments) it is recommended that you manually extend the time 
-     *  limit to a more reasonable time frame.
+     *  Checks the token to authenticate the request
+     *
+     *  The check will fail if the session wasn't started (or the session id 
+     *  got lost somehow), if the $_SESSION['csrf'] wasn't set (probably the 
+     *  form page didn't do its part in generating and using the token), if 
+     *  the request did not contain the 'csrf' parameter, or if the 'csrf' 
+     *  parameter does not match the generated from the information in the 
+     *  $_SESSION['csrf']. The check will also fail if the request was made 
+     *  outside of the time limit specified by the optional $timeout parameter 
+     *  or took longer than the default 5 minutes. For multi-page scenarios, 
+     *  or for longer forms (like blog posts and user comments) it is 
+     *  recommended that you manually extend the time limit to a more 
+     *  reasonable time frame.
+     *
      *  @visibility public 
      *  @param integer $timeout
      *  @return boolean
