@@ -82,7 +82,7 @@ class CsrfToken {
         if (\session_id()) {
             $this->acceptGet = (bool) $acceptGet;
         } else {
-            throw new Exception('Could not find session id', 1);
+            throw new \Exception('Could not find session id', 1);
         }
     }
 
