@@ -42,7 +42,10 @@ All rights reserved.
 The code for CSRF4PHP is released under GPLv3. You will find the whole text of
 the license in the file ``LICENSE.txt`` in this package. If you did not receive
 the file with the package, you may 
-[find it online](http://www.gnu.org/licenses/gpl-3.0.txt).
+[find it online](http://www.gnu.org/licenses/gpl-3.0.txt). Alternatively you
+may also use CSRF4PHP under the terms of LGPLv3 or any later version of LGPL.
+See the file named ``LGPL``. If you have not received this file, you may 
+[find it online](http://www.gnu.org/licenses/lgpl-3.0.txt).
 
 Disclaimer
 ----------
