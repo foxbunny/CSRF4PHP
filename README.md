@@ -37,15 +37,24 @@ preserved so that the token can be checked later.
 License
 -------
 
-Copyright (c)2010, by Branko Vukelic.
-All rights reserved.
-The code for CSRF4PHP is released under GPLv3. You will find the whole text of
-the license in the file ``LICENSE.txt`` in this package. If you did not receive
-the file with the package, you may 
-[find it online](http://www.gnu.org/licenses/gpl-3.0.txt). Alternatively you
-may also use CSRF4PHP under the terms of LGPLv3 or any later version of LGPL.
-See the file named ``LGPL``. If you have not received this file, you may 
-[find it online](http://www.gnu.org/licenses/lgpl-3.0.txt).
+Copyright (c)2010 by Branko Vukelic. All rights reserved.
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version. (See ``LICENSE`` file for the exact text of the GPL license.)
+
+At your option, you may redistribute and/or modify this program under the terms
+of GNU Lesser General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version. (See ``LGPL`` file for the exact text of LGPL license.)
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program. If not, see <http://www.gnu.org/licenses/>.
 
 Disclaimer
 ----------
