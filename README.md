@@ -36,7 +36,7 @@ preserved so that the token can be checked later.
 License
 -------
 
-Copyright (c)2010 by Branko Vukelic. All rights reserved.
+Copyright (c)2010-2012 by Branko Vukelic and Oleg Stepura. All rights reserved.
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
