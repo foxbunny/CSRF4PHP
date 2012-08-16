@@ -27,6 +27,7 @@
  * @package Csrf 
  */
 namespace Csrf;
+use Exception;
 
 
 /**
