@@ -16,21 +16,20 @@ provided you remove the namespace line from ``CsrfToken.php`` (or any other
 piece of code that you may find in this package), and use CsrfToken without the
 namespaces. 
 
-If you feel support for pre-5.3 version is important to you, please test
-CsrfToken as is in your code, and then try removing the namespace. I'm not sure
-how it's supposed to work, so I'd appreciate a bug report on that.
+To use in pre-5.3 PHP version try removing the namespace declaration and the
+followed use statement.
 
 Basic usage scenario
 --------------------
 
 The basic usage involves initializing an instance at some point, calling 
-either the getHiddenField() or generateToken() methods. The former produces 
+either the `generateHiddenField()` or `generateToken()` methods. The former produces 
 an XHTML-compliant input element, whereas the latter produces a raw 
 Base64-encoded string. In another request, the request can be tested for 
 authenticity (to the best of this script's author's knowledge) by calling 
-the checkToken() method.
+the `checkToken()` method.
 
-The generateHiddenField() and generateToken() create a $_SESSION['csrf'] 
+The `generateHiddenField()` and `generateToken()` create a `$_SESSION['csrf']`
 array, which contains the material for token creation. This data is 
 preserved so that the token can be checked later.
 
